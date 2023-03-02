@@ -3,9 +3,13 @@ import GlobalStyles from '../../styles/global';
 
 const StyledApp = styled.div`
   width: 320px;
+  padding-left: 10px;
+  padding-right: 10px;
 
-  @media(min-width: 920px) {
+  @media(min-width: 321px) {
     width: 968px;
+    padding-left: 0;
+    padding-right: 0;
   }
 `;
 
@@ -15,7 +19,8 @@ function App(): JSX.Element {
     <>
       <GlobalStyles />
       <StyledApp>Hello, world!</StyledApp>;
-    </>);
+    </>
+  );
 }
 
 export default App;
