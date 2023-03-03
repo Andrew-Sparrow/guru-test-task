@@ -9,6 +9,10 @@ export default createGlobalStyle`
         font-family: 'Open Sans', sans-serif;
     }
 
+    body {
+      background-color: #303131;
+    }
+
     #root{
         margin:0 auto;
     }

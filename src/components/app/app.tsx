@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import GlobalStyles from '../../styles/global';
 
+import { Main } from '../main/main';
+
 const StyledApp = styled.div`
   width: 320px;
   padding-left: 10px;
@@ -18,7 +20,9 @@ function App(): JSX.Element {
   return (
     <>
       <GlobalStyles />
-      <StyledApp>Hello, world!</StyledApp>;
+      <StyledApp>
+        <Main />
+      </StyledApp>
     </>
   );
 }
