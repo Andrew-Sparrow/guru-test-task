@@ -5,10 +5,14 @@ import { APIRoute } from '../const';
 import type {
   AppDispatch,
   RootState,
-  // ProductDataType
 } from '../types/types';
 
-export const fetchCommentsList = () => (dispatch: AppDispatch, _getState: RootState, api: AxiosInstance) => (
+
+export const fetchProductsList = () => (
+  dispatch: AppDispatch,
+  _getState: RootState,
+  api: AxiosInstance
+) => (
   api.get(`${APIRoute.PRODUCTS}`)
     .then((products) => {
       dispatch(loadProducts(products));
@@ -17,3 +21,11 @@ export const fetchCommentsList = () => (dispatch: AppDispatch, _getState: RootSt
       // do nothing.
     })
 );
+
+// const fetchProducts = createAsyncThunk(
+//   'products/fetchProducts',
+//   async (thunkAPI) => {
+//     const response = await userAPI.fetchById(userId);
+//     return response.data;
+//   }
+// );

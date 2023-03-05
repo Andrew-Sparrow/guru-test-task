@@ -1,3 +1,5 @@
+import { AxiosResponse } from 'axios';
+
 import { createAction } from '@reduxjs/toolkit';
 
 import { ProductDataType } from '../types/types';
@@ -8,5 +10,5 @@ export const ActionType = {
 
 export const loadProducts = createAction(
   ActionType.LOAD_PLACES,
-  (products: ProductDataType[]) => ({ payload: products })
+  (products: ProductDataType[] | AxiosResponse) => ({ payload: products })
 );

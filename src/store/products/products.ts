@@ -1,3 +1,4 @@
+import { AxiosResponse } from 'axios';
 import { createReducer } from '@reduxjs/toolkit';
 import { ProductDataType } from '../../types/types';
 
@@ -6,7 +7,7 @@ import {
 } from '../actions';
 
 type StateType = {
-  products: ProductDataType[];
+  products: ProductDataType[] | AxiosResponse;
   isLoading: boolean;
 };
 
@@ -14,7 +15,6 @@ const initialState: StateType = {
   products: [],
   isLoading: true,
 };
-
 
 const products = createReducer(initialState, (builder) => {
   builder
