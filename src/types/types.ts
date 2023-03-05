@@ -1,4 +1,4 @@
-export type Product = {
+export type CardDataType = {
   date: number;
   id: string;
   locality: string;
