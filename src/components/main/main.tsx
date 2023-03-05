@@ -5,12 +5,11 @@ import { Card } from '../card/card';
 const StyledWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  
+
   @media(min-width: 321px) {
     margin-left: -24px;
   }
 `;
-
 
 const StyledMain = styled.div`
   width: 300px;
