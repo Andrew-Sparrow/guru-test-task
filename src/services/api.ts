@@ -1,8 +1,8 @@
 import axios, { AxiosInstance, AxiosResponse, AxiosError } from 'axios';
 
-import { CardDataType } from '../types/types';
+import { ProductDataType } from '../types/types';
 
-const BACKEND_URL = 'https://6075786f0baf7c0017fa64ce.mockapi.io/products';
+const BACKEND_URL = 'https://6075786f0baf7c0017fa64ce.mockapi.io';
 const REQUEST_TIMEOUT = 5000;
 
 
@@ -12,7 +12,7 @@ export const getAxiosInstance = (): AxiosInstance => {
     timeout: REQUEST_TIMEOUT,
   });
 
-  const onSuccess = ({ data }: AxiosResponse<CardDataType[]>): CardDataType[] => {
+  const onSuccess = ({ data }: AxiosResponse<ProductDataType[]>): ProductDataType[] => {
     console.info(`[response] [${JSON.stringify(data)}]`);
     return data;
   };

@@ -1,12 +1,12 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { CardDataType } from '../../types/types';
+import { ProductDataType } from '../../types/types';
 
 import {
   loadProducts
 } from '../actions';
 
 type StateType = {
-  products: CardDataType[];
+  products: ProductDataType[];
   isLoading: boolean;
 };
 
