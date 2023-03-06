@@ -1,11 +1,16 @@
+// import { createAsyncThunk } from '@reduxjs/toolkit';
+
 import { AxiosInstance } from 'axios';
 
 import { loadProducts } from './actions';
 import { APIRoute } from '../const';
+
 import type {
   AppDispatch,
   RootState,
 } from '../types/types';
+
+// import { ActionType } from './actions';
 
 
 export const fetchProductsList = () => (
@@ -23,9 +28,12 @@ export const fetchProductsList = () => (
 );
 
 // const fetchProducts = createAsyncThunk(
-//   'products/fetchProducts',
+//   ActionType.LOAD_PRODUCTS,
 //   async (thunkAPI) => {
-//     const response = await userAPI.fetchById(userId);
-//     return response.data;
+//     console.log(thunkAPI);
+//     const response = await thunkAPI.extraArgument.get(`${APIRoute.PRODUCTS}`);
+//     return response;
 //   }
 // );
+
+
