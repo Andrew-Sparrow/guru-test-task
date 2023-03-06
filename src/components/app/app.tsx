@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import GlobalStyles from '../../styles/global';
 
 import { Main } from '../main/main';
-// import { fetchProductsList } from '../../store/api-actions';
-// import { useAppDispatch } from '../../store/store';
+import { fetchProductsList } from '../../store/api-actions';
+import { useAppDispatch } from '../../store/store';
 
 const StyledApp = styled.div`
   width: 320px;
@@ -21,8 +21,8 @@ const StyledApp = styled.div`
 
 
 function App(): JSX.Element {
-  // const dispatch = useAppDispatch();
-  // dispatch(fetchProductsList());
+  const dispatch = useAppDispatch();
+  dispatch(fetchProductsList());
 
   return (
     <>
