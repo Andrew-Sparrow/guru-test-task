@@ -7,7 +7,7 @@ import {
 } from '../actions';
 
 type StateType = {
-  products: ProductDataType[] | AxiosResponse;
+  products: ProductDataType[] | AxiosResponse<ProductDataType[]>;
   isLoading: boolean;
 };
 

@@ -10,5 +10,5 @@ export const ActionType = {
 
 export const loadProducts = createAction(
   ActionType.LOAD_PLACES,
-  (products: ProductDataType[] | AxiosResponse) => ({ payload: products })
+  (products: ProductDataType[] | AxiosResponse<ProductDataType[]>) => ({ payload: products })
 );
