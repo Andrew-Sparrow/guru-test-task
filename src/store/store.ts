@@ -1,16 +1,18 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
-import { DispatchFunc, RootState } from '../types/types';
-import rootReducer from './root-reducer';
+// import { DispatchFunc, RootState } from '../types/types';
+// import rootReducer from './root-reducer';
 import { getAxiosInstance } from '../services/api';
+import productsReducer from './products/productsSlice';
 // import { fetchProductsList } from './api-actions';
 
 const api = getAxiosInstance();
 
 
 export const store = configureStore({
-  reducer: rootReducer,
+  reducer: {
+    products: productsReducer
+  },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       thunk: {
@@ -19,6 +21,8 @@ export const store = configureStore({
     })
 });
 
+// Infer the `RootState` and `AppDispatch` types from the store itself
+export type RootState = ReturnType<typeof store.getState>
 
-export const useAppDispatch: DispatchFunc = useDispatch;
-export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
+export type AppDispatch = typeof store.dispatch;

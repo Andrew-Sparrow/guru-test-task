@@ -5,10 +5,7 @@ import { AxiosInstance } from 'axios';
 import { loadProducts } from './actions';
 import { APIRoute } from '../const';
 
-import type {
-  AppDispatch,
-  RootState,
-} from '../types/types';
+import { AppDispatch, RootState } from './store';
 
 // import { ActionType } from './actions';
 

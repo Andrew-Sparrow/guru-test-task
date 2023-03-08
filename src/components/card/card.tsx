@@ -5,7 +5,7 @@ const StyledCard = styled.div`
   height: 368px;
   background-color: #53531e;
   border-radius: 10px;
-  border: 1px solid #000;
+  border: 1px solid #000000;
 
 
   @media(min-width: 321px) {

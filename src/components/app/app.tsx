@@ -3,7 +3,7 @@ import GlobalStyles from '../../styles/global';
 
 import { Main } from '../main/main';
 import { fetchProductsList } from '../../store/api-actions';
-import { useAppDispatch } from '../../store/store';
+import { useAppDispatch } from '../../hooks/hooks';
 
 const StyledApp = styled.div`
   width: 320px;
