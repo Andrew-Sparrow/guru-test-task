@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import styled from 'styled-components';
 import GlobalStyles from '../../styles/global';
 
@@ -22,7 +24,10 @@ const StyledApp = styled.div`
 
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
-  dispatch(fetchProductsList());
+
+  useEffect(() => {
+    dispatch(fetchProductsList());
+  }, [dispatch]);
 
   return (
     <>
