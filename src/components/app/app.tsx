@@ -1,9 +1,12 @@
+import { useEffect } from 'react';
+
 import styled from 'styled-components';
 import GlobalStyles from '../../styles/global';
 
 import { Main } from '../main/main';
-import { fetchProductsList } from '../../store/api-actions';
-import { useAppDispatch } from '../../store/store';
+// import { fetchProductsList } from '../../store/api-actions';
+import { fetchProductsList } from '../../store/products/productSlice';
+import { useAppDispatch, useAppSelector } from '../../store/store';
 
 const StyledApp = styled.div`
   width: 320px;
@@ -19,16 +22,21 @@ const StyledApp = styled.div`
   }
 `;
 
-
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
-  dispatch(fetchProductsList());
+  const { isLoading, error } = useAppSelector((state) => state.products);
+
+  useEffect(() => {
+    dispatch(fetchProductsList());
+  }, [dispatch]);
 
   return (
     <>
       <GlobalStyles />
       <StyledApp>
         <h1>Похожие объявления</h1>
+        {isLoading && <h2>Loading...</h2>}
+        {error && <h2>An Error occured: {error}</h2>}
         <Main />
       </StyledApp>
     </>
