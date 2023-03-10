@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import GlobalStyles from '../../styles/global';
 
 import { Main } from '../main/main';
-import { fetchProductsList } from '../../store/api-actions';
+import { fetchProductsList } from '../../store/products/productsSlice';
 import { useAppDispatch } from '../../hooks/hooks';
 
 const StyledApp = styled.div`

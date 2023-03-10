@@ -12,10 +12,7 @@ export const getAxiosInstance = (): AxiosInstance => {
     timeout: REQUEST_TIMEOUT,
   });
 
-  const onSuccess = ({ data }: AxiosResponse<ProductDataType[]>): ProductDataType[] => {
-    console.info(`[response] [${JSON.stringify(data)}]`);
-    return data;
-  };
+  const onSuccess = ({ data }: AxiosResponse<ProductDataType[]>): ProductDataType[] => data;
 
   const onFail = (err: AxiosError) => Promise.reject(err);
 

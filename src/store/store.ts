@@ -1,17 +1,18 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 // import { DispatchFunc, RootState } from '../types/types';
-// import rootReducer from './root-reducer';
+import rootReducer from './root-reducer';
 import { getAxiosInstance } from '../services/api';
-import productsReducer from './products/productsSlice';
+import { AxiosInstance } from 'axios';
+// import productsReducer from './products/productsSlice';
 // import { fetchProductsList } from './api-actions';
 
-const api = getAxiosInstance();
+const api: AxiosInstance = getAxiosInstance();
 
 
 export const store = configureStore({
   reducer: {
-    products: productsReducer
+    products: rootReducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

@@ -23,14 +23,3 @@ export const fetchProductsList = () => (
       // do nothing.
     })
 );
-
-// const fetchProducts = createAsyncThunk(
-//   ActionType.LOAD_PRODUCTS,
-//   async (thunkAPI) => {
-//     console.log(thunkAPI);
-//     const response = await thunkAPI.extraArgument.get(`${APIRoute.PRODUCTS}`);
-//     return response;
-//   }
-// );
-
-
