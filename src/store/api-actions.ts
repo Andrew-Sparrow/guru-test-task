@@ -24,7 +24,7 @@ export const fetchProductsList = () => (
     })
 );
 
-// const fetchProducts = createAsyncThunk(
+// export const fetchProductsList = createAsyncThunk(
 //   ActionType.LOAD_PRODUCTS,
 //   async (thunkAPI) => {
 //     console.log(thunkAPI);

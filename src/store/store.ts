@@ -2,23 +2,18 @@ import { configureStore } from '@reduxjs/toolkit';
 
 // import { DispatchFunc, RootState } from '../types/types';
 // import rootReducer from './root-reducer';
-import { getAxiosInstance } from '../services/api';
+// import { getAxiosInstance } from '../services/api';
 import productsReducer from './products/productsSlice';
 // import { fetchProductsList } from './api-actions';
 
-const api = getAxiosInstance();
+// const api = getAxiosInstance();
 
 
 export const store = configureStore({
   reducer: {
     products: productsReducer
   },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      thunk: {
-        extraArgument: api,
-      },
-    })
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware()
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
