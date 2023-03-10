@@ -1,4 +1,9 @@
-import { createSlice, createAsyncThunk, AnyAction, PayloadAction, AsyncThunk } from '@reduxjs/toolkit';
+import {
+  createSlice,
+  createAsyncThunk,
+  PayloadAction,
+  Action
+} from '@reduxjs/toolkit';
 import { AxiosResponse } from 'axios';
 
 
@@ -18,9 +23,7 @@ const initialState: ProductsStateType = {
   error: null
 };
 
-type GenericAsyncThunk = AsyncThunk<unknown, unknown, { rejectValue: string }>
-
-function isError(action: AnyAction) {
+function isError(action: Action<string>) {
   return action.type.endsWith('rejected');
 }
 
