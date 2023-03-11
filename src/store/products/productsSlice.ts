@@ -4,7 +4,7 @@ import {
   PayloadAction,
   Action
 } from '@reduxjs/toolkit';
-import { AxiosResponse } from 'axios';
+import { AxiosError, AxiosResponse } from 'axios';
 
 
 import { ProductDataType } from '../../types/types';
@@ -29,16 +29,15 @@ function isError(action: Action<string>) {
 
 const api = getAxiosInstance();
 
-export const fetchProductsList = createAsyncThunk(
+export const fetchProductsList = createAsyncThunk<ProductDataType[], undefined>(
   ActionType.LOAD_PRODUCTS,
   async (_, { rejectWithValue }) => {
-    const response = await api.get('/products');
-
-    if (response.statusText !== 'OK') {
-      return rejectWithValue('Server Error!');
+    try {
+      const response = await api.get('/products');
+      return response.data as ProductDataType[];
+    } catch (error) {
+      return rejectWithValue(error);
     }
-
-    return response;
   }
 );
 
@@ -58,8 +57,8 @@ const productsSlice = createSlice({
       })
       .addMatcher(
         isError,
-        (state, action: PayloadAction<string>) => {
-          state.error = action.payload;
+        (state, action: PayloadAction<AxiosError>) => {
+          state.error = action.payload.message;
           state.isLoading = false;
         });
   }
