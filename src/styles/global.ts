@@ -13,6 +13,10 @@ export default createGlobalStyle`
       background-color: #303131;
     }
 
+    ul {
+      list-style: none
+    }
+
     #root{
         margin:0 auto;
     }
