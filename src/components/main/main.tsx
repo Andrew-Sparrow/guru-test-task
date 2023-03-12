@@ -4,7 +4,7 @@ import { useAppSelector } from '../../hooks/hooks';
 import { Card } from '../card/card';
 import { ProductDataType } from '../../types/types';
 
-const StyledWrapper = styled.div`
+const StyledWrapper = styled.ul`
   display: flex;
   flex-wrap: wrap;
 
@@ -13,7 +13,7 @@ const StyledWrapper = styled.div`
   }
 `;
 
-const StyledMain = styled.ul`
+const StyledMain = styled.div`
   width: 300px;
   background-color: #000099;
 
@@ -30,7 +30,7 @@ function Main(): JSX.Element {
     <StyledMain>
       <StyledWrapper>
         {
-          products.map((card: ProductDataType) => <Card key={card.id} />)
+          products.map((card: ProductDataType) => <Card key={card.id} {...card} />)
         }
       </StyledWrapper>
     </StyledMain>
