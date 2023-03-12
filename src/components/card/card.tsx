@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const StyledCard = styled.li`
   width: 300px;
   height: 368px;
-  background-color: #53531e;
+  background-color: #fff;
   border-radius: 10px;
   margin-bottom: 24px;
 
@@ -12,6 +12,33 @@ const StyledCard = styled.li`
     height: 340px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+  }
+
+  .info {
+    padding-top: 2px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .info__box {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  .info__price {
+    font-weight: 700;
+    font-size: 22px;
+  }
+
+  .info__old-price {
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  .info__title {
+    font-weight: 400;
+    font-size: 14px;
   }
 
   @media(min-width: 321px) {
@@ -25,8 +52,16 @@ const StyledCard = styled.li`
   }
 `;
 
+type CardProps = {
+  oldPrice: string;
+  price: string;
+  title: string;
+};
 
-function Card(): JSX.Element {
+
+function Card(props: CardProps): JSX.Element {
+  const { oldPrice, price, title } = props;
+
   const imgPath = 'https://source.unsplash.com/random';
 
   return (
@@ -35,8 +70,8 @@ function Card(): JSX.Element {
       <div className='info'>
         <div className="info__box">
           <div className="info__price">
-            <div className="info__old-price"></div>
-            <div className="info__price"></div>
+            <p className="info__old-price">{oldPrice}</p>
+            <p className="info__price">{price}</p>
           </div>
           <div className="info__icons">
             <svg className="info__deliver" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -50,6 +85,7 @@ function Card(): JSX.Element {
             </svg>
           </div>
         </div>
+        <p className="info__title">{title}</p>
       </div>
     </StyledCard>
   );
