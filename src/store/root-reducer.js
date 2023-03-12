@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
 
-// import { products } from './products/products';
 import productsSlice from './products/productsSlice';
 
 export const NameSpace = {

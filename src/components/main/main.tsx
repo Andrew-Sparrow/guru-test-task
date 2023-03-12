@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
+import { useAppSelector } from '../../hooks/hooks';
 import { Card } from '../card/card';
+import { ProductDataType } from '../../types/types';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -11,7 +13,7 @@ const StyledWrapper = styled.div`
   }
 `;
 
-const StyledMain = styled.div`
+const StyledMain = styled.ul`
   width: 300px;
   background-color: #000099;
 
@@ -20,14 +22,15 @@ const StyledMain = styled.div`
   }
 `;
 
-const list = new Array(16).fill(1).map((item, index) => index + 1);
-
 function Main(): JSX.Element {
+
+  const products = useAppSelector((state) => state.products.list);
+
   return (
     <StyledMain>
       <StyledWrapper>
         {
-          list.map((card) => <Card key={card} />)
+          products.map((card: ProductDataType) => <Card key={card.id} />)
         }
       </StyledWrapper>
     </StyledMain>

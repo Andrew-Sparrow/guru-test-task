@@ -4,7 +4,10 @@ import {
   PayloadAction,
   Action
 } from '@reduxjs/toolkit';
-import { AxiosError, AxiosResponse } from 'axios';
+import {
+  AxiosError,
+  // AxiosResponse
+} from 'axios';
 
 
 import { ProductDataType } from '../../types/types';
@@ -12,7 +15,8 @@ import { ActionType } from '../actions';
 import { getAxiosInstance } from '../../services/api';
 
 type ProductsStateType = {
-  list: ProductDataType[] | AxiosResponse<ProductDataType[]>;
+  // list: ProductDataType[] | AxiosResponse<ProductDataType[]>;
+  list: ProductDataType[] ;
   isLoading: boolean;
   error: string | null;
 };

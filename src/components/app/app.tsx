@@ -5,7 +5,7 @@ import GlobalStyles from '../../styles/global';
 
 import { Main } from '../main/main';
 import { fetchProductsList } from '../../store/products/productsSlice';
-import { useAppDispatch } from '../../hooks/hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 
 const StyledApp = styled.div`
   width: 320px;
@@ -24,6 +24,7 @@ const StyledApp = styled.div`
 
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
+  const { isLoading, error } = useAppSelector((state) => state.products);
 
   useEffect(() => {
     dispatch(fetchProductsList());
@@ -34,6 +35,8 @@ function App(): JSX.Element {
       <GlobalStyles />
       <StyledApp>
         <h1>Похожие объявления</h1>
+        {isLoading && <h2>Loading...</h2>}
+        {error && <h2>An error occured: {error}</h2>}
         <Main />
       </StyledApp>
     </>

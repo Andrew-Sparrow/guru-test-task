@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledCard = styled.div`
+const StyledCard = styled.li`
   width: 300px;
   height: 368px;
   background-color: #53531e;
