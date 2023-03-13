@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
-const StyledCard = styled.li`
+type Props = {
+  seen: boolean;
+};
+
+const StyledCard = styled.li<Props>`
+  --green: #00A0AB;
   width: 300px;
   height: 368px;
   background-color: #fff;
@@ -51,9 +56,20 @@ const StyledCard = styled.li`
     font-size: 12px;
   }
 
+  .info__deliver,
+  .info__deal {
+    & path {
+      fill: ${(props) => props.seen ? '#00A0AB' : '#C7C7C7'};
+    }
+  }
+
   .info__deliver--hoverable:hover,
   .info__deal--hoverable:hover {
     cursor: pointer;
+
+    & path {
+      fill: var(--green);
+    }
   }
 
   @media(min-width: 321px) {
@@ -90,7 +106,7 @@ function Card(props: CardProps): JSX.Element {
   const imgPath = 'https://source.unsplash.com/random';
 
   return (
-    <StyledCard>
+    <StyledCard seen={seen}>
       <img className="card__img" src={imgPath} alt="random" />
       <div className='info'>
         <div className="info__box info__box--top">
@@ -105,7 +121,7 @@ function Card(props: CardProps): JSX.Element {
               <path d="M17.5007 15.5163C16.4183 15.5163 15.5409 16.3937 15.5409 17.4761C15.5409 18.5585 16.4183 19.4359 17.5007 19.4359C18.5831 19.4359 19.4605 18.5585 19.4605 17.4761C19.4605 17.4761 19.4605 17.476 19.4605 17.476C19.4592 16.3942 18.5825 15.5175 17.5007 15.5163Z" fill="#C7C7C7" />
               <path d="M22.6466 12.064L21.6335 10.7729H16.5748C15.7943 10.7729 15.1374 10.1396 15.1374 9.35918V5.58964C15.1447 5.27131 14.8925 5.00741 14.5742 5.00015C14.5629 4.9999 14.5516 4.99995 14.5403 5.0004H2.63458C2.29315 5.0004 2 5.24822 2 5.58964V16.4847C2 16.8262 2.29315 17.0928 2.63458 17.0928H3.69119C3.89637 15.585 5.285 14.529 6.79282 14.7341C8.01972 14.901 8.98457 15.8659 9.15153 17.0928H14.7706C14.9759 15.5849 16.3646 14.529 17.8725 14.7342C19.0993 14.9012 20.064 15.866 20.231 17.0928H22.3654C22.7068 17.0928 23 16.8262 23 16.4847V13.0707C22.9966 12.7053 22.8724 12.3514 22.6466 12.064Z" fill="#C7C7C7" />
             </svg>
-            <svg className={`info__deliver ${!seen ? 'info__deliver--hoverable' : ''}`} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className={`info__deal ${!seen ? 'info__deliver--hoverable' : ''}`} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path fillRule="evenodd" clipRule="evenodd" d="M5 5L12 2L19 5V12.5C18 20 12 21 12 21C12 21 6 20 5 12.5V5ZM13.1325 9.07651L12.439 7.80489C12.2495 7.45742 11.7505 7.45742 11.561 7.80489L10.8675 9.07651C10.7956 9.20838 10.6682 9.30092 10.5206 9.32857L9.09692 9.59518C8.7079 9.66803 8.55372 10.1425 8.82562 10.4301L9.8207 11.4826C9.92389 11.5918 9.97255 11.7415 9.95322 11.8905L9.76683 13.3269C9.7159 13.7194 10.1195 14.0126 10.4771 13.8429L11.7856 13.2218C11.9213 13.1574 12.0787 13.1574 12.2144 13.2218L13.5229 13.8429C13.8805 14.0126 14.2841 13.7194 14.2332 13.3269L14.0468 11.8905C14.0275 11.7415 14.0761 11.5918 14.1793 11.4826L15.1744 10.4301C15.4463 10.1425 15.2921 9.66803 14.9031 9.59518L13.4794 9.32857C13.3318 9.30092 13.2044 9.20838 13.1325 9.07651Z" fill="#C4C4C4" />
             </svg>
           </div>
