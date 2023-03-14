@@ -127,7 +127,7 @@ function Card(props: CardProps): JSX.Element {
           </div>
           <div className="info__icons">
             <StyledSVG src={'img/znachok_dostavki.svg'} className={`info__deliver ${seen ? 'info__deliver--seen' : ''}`} />
-            <StyledSVG src={'/img/znachok_sdelki.svg'} className={`info__deal ${seen ? 'info__deal--seen' : ''}`} />
+            <StyledSVG src={'img/znachok_sdelki.svg'} className={`info__deal ${seen ? 'info__deal--seen' : ''}`} />
           </div>
         </div>
         <p className="info__title">{title}</p>
