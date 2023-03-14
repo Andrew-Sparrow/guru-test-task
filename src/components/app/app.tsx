@@ -6,6 +6,7 @@ import GlobalStyles from '../../styles/global';
 import { Main } from '../main/main';
 import { fetchProductsList } from '../../store/products/productsSlice';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
+import { ShowMore } from '../show-more/show-more';
 
 const StyledApp = styled.div`
   width: 320px;
@@ -38,6 +39,7 @@ function App(): JSX.Element {
         {isLoading && <h2>Loading...</h2>}
         {error && <h2>An error occured: {error}</h2>}
         <Main />
+        <ShowMore />
       </StyledApp>
     </>
   );
