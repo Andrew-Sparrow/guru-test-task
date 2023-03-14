@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import SVG from 'react-inlinesvg';
 
-import dealSVG from '../../img/znachok_sdelki.svg';
-import deliverySVG from '../../img/znachok_dostavki.svg';
 
 type Props = {
   seen: boolean;
@@ -128,8 +126,8 @@ function Card(props: CardProps): JSX.Element {
             <p className="info__price">{price}</p>
           </div>
           <div className="info__icons">
-            <StyledSVG src={deliverySVG} className={`info__deliver ${seen ? 'info__deliver--seen' : ''}`} />
-            <StyledSVG src={dealSVG} className={`info__deal ${seen ? 'info__deal--seen' : ''}`} />
+            <StyledSVG src={'img/znachok_dostavki.svg'} className={`info__deliver ${seen ? 'info__deliver--seen' : ''}`} />
+            <StyledSVG src={'/img/znachok_sdelki.svg'} className={`info__deal ${seen ? 'info__deal--seen' : ''}`} />
           </div>
         </div>
         <p className="info__title">{title}</p>
