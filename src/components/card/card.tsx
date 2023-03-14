@@ -11,8 +11,6 @@ const StyledCard = styled.li<Props>`
 
   width: 300px;
   height: 368px;
-  background-color: #fff;
-  border-radius: 10px;
   margin-bottom: 24px;
 
   .card__img {
@@ -26,6 +24,10 @@ const StyledCard = styled.li<Props>`
     padding-top: 2px;
     padding-left: 12px;
     padding-right: 12px;
+    background-color: ${({ seen }) => seen ? '#FFF6A5' : '#fff'};
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-bottom: 12px;
   }
 
   .info__box {
@@ -51,6 +53,8 @@ const StyledCard = styled.li<Props>`
   .info__title {
     font-weight: 400;
     font-size: 14px;
+    margin-bottom: 14px;
+    font-weight: 500;
   }
 
   .info__city,
