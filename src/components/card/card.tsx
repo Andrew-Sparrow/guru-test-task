@@ -8,10 +8,11 @@ type Props = {
 
 const StyledCard = styled.li<Props>`
   --green: #00A0AB;
+  position: relative;
 
   width: 300px;
-  height: 368px;
   margin-bottom: 24px;
+  z-index: 100;
 
   .card__img {
     width: 300px;
@@ -24,10 +25,11 @@ const StyledCard = styled.li<Props>`
     padding-top: 2px;
     padding-left: 12px;
     padding-right: 12px;
+    padding-bottom: 12px;
     background-color: ${({ seen }) => seen ? '#FFF6A5' : '#fff'};
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    padding-bottom: 12px;
+    margin-top: -3px;
   }
 
   .info__box {
@@ -82,6 +84,21 @@ const StyledCard = styled.li<Props>`
     }
   }
 
+  .seen {
+    background: rgba(44, 44, 44, 0.74);
+    border-radius: 8px;
+    color: #FFFFFF;
+    font-weight: 400;
+    text-align: center;
+    font-size: 12px;
+    width: 94px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    position: absolute;
+    top: 12px;
+    left: 62px;
+  }
+
   @media(min-width: 321px) {
     width: 224px;
     margin-left: 24px;
@@ -122,6 +139,7 @@ function Card(props: CardProps): JSX.Element {
 
   return (
     <StyledCard seen={seen}>
+      {seen && <p className='seen'>Просмотрено</p>}
       <img className="card__img" src={imgPath} alt="random" />
       <div className='info'>
         <div className="info__box info__box--top">
